@@ -43,3 +43,12 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+gem 'haml-rails'
+group :development do
+  gem 'quiet_assets'
+  gem 'better_errors'
+end
+gem 'foundation-rails'
+gem 'devise'
+gem 'rails_admin'
