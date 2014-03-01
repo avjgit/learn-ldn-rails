@@ -2,17 +2,29 @@
 %html{ :lang => "en"}
   %head
     %meta{ :charset => "utf-8" }
-
     %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1.0" }
-
     %title= content_for?(:title) ? yield(:title) : "Untitled"
 
     = stylesheet_link_tag "application"
     = javascript_include_tag "vendor/modernizr"
+    = javascript_include_tag "application"
     = csrf_meta_tag
 
   %body
-  .row
-    = render 'layouts/alerts'
-    = yield
-    = javascript_include_tag "application"
+    %nav.top-bar{"data-topbar" => ""}
+      %ul.title-area
+        %li.name
+          %h1= link_to "My Site", root_path
+      %section.top-bar-section
+        %ul.right
+          %li.has-form
+            = link_to "Log out", destroy_user_session_path, method: :delete, class: 'button alert'
+        %ul.left
+    .row
+      .small-3.columns
+        .panel
+          %ul.no-bullet
+            %li= link_to "Dashboard", root_path
+      .small-9.columns
+        = render 'layouts/alerts'
+        = yield
