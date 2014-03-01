@@ -13,13 +13,6 @@
 
   %body
   .row
-    - if notice
-      .alert-box
-        = notice
-        %a.close{href: ''} &times;
-    - if alert
-      .alert-box.warning
-        = alert
-        %a.close{href: ''} &times;
+    = render 'layouts/alerts'
     = yield
     = javascript_include_tag "application"
