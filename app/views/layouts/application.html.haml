@@ -25,6 +25,8 @@
         .panel
           %ul.no-bullet
             %li= link_to "Dashboard", root_path
+            %li= link_to "Мои твиты", tweets_path
+            %li= link_to "Черкануть пару строк", new_tweet_path
       .small-9.columns
         = render 'layouts/alerts'
         = yield
